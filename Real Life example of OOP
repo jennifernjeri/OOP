@@ -1,0 +1,39 @@
+Class Phone(object):
+    def __init__(self, name, model, os_system):
+        self.name = name
+        self.model = model
+        self.os_system = os_system
+        self.address_book = {}
+
+    def make_call(self, name):
+        if not name in self.address_book:
+            raise ValueError('name not in address_book')
+        else:
+            print('calling: ', name)
+
+    def add_contact(self, name, number):
+        self.address_book[name] = number
+
+    def get_name(self):
+        return self.name    
+
+Class Samsung(Phone):
+    def __init__(self, args):
+        Phone.__init__(args)
+
+    def get_name(self):
+        return 'samsung ' + self.name
+
+Class Iphone(Phone):
+    def __init__(self, args):
+        Phone.__init__(args)
+        self.price = self._calculate_price()
+
+    def get_name(self):
+        return 'Iphone '+ self.name  
+
+    def get_price(self.price):
+        return self.price
+        
+    def _calculate_price(self):
+        return '100000 USD'
